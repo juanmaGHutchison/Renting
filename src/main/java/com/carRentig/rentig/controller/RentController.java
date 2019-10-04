@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.carRentig.rentig.dto.RentDto;
 import com.carRentig.rentig.dto.ResultRentDto;
+import com.carRentig.rentig.services.rentServicePackage.RentServiceImpl;
 
 @RestController
 @RequestMapping("user/{iduser}/car/{idcar}/rent")
@@ -24,7 +25,7 @@ public class RentController {
 	
 	@PostMapping
 	public RentDto create(@RequestBody @Valid RentDto RentDto) {
-		new RentDto();
+		return new RentDto();
 	}
 	
 	@GetMapping

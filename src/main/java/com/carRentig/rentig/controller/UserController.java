@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.carRentig.rentig.dto.UserDto;
+import com.carRentig.rentig.services.userServicePackage.UserServiceImpl;
 
 @RestController
 @RequestMapping("/user")

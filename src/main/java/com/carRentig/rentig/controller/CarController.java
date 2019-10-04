@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.carRentig.rentig.dto.CarDto;
 import com.carRentig.rentig.dto.UserDto;
+import com.carRentig.rentig.services.carServicePackage.CarServiceImpl;
 
 @RestController
 @RequestMapping("user/{iduser}/car")
@@ -31,7 +32,7 @@ public class CarController {
 	
 	@GetMapping("/{id}")
 	public CarDto findByOne(@PathVariable("id") Integer id) {
-		
+		return new CarDto();
 	}
 	
 	@PostMapping
