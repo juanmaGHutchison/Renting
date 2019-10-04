@@ -22,7 +22,7 @@ import com.carRentig.rentig.dto.UserDto;
 @RestController
 @RequestMapping("user/{iduser}/car")
 public class CarController {
-	@Autowired private CarService carService;
+	@Autowired private CarServiceImpl carService;
 	
 	@GetMapping
 	Page<CarDto> findAll(){
