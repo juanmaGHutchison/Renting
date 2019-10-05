@@ -27,6 +27,8 @@ public class UserController {
 	
 	@GetMapping
 	Page<UserDto> findAll(){
+		//Pageable pageableUser = 
+		//userService.findAll(pageable)
 		return new PageImpl<UserDto>(new ArrayList<UserDto>());
 	}
 	
