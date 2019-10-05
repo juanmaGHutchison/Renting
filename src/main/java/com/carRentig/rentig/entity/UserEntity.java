@@ -10,17 +10,19 @@ import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public final class UserEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private final Integer id;
-	private final String name;
+	private Integer id;
+	private String name;
 	@OneToMany(mappedBy = "userEntity")
-	private final List<CarEntity> cars;
+	private List<CarEntity> cars;
 	@OneToMany(mappedBy = "userEntity")
-	private final List<RentEntity> rents;
+	private List<RentEntity> rents;
 }

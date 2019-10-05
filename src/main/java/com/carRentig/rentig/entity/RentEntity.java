@@ -9,20 +9,22 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public final class RentEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private final Integer id;
+	private Integer id;
 	@ManyToOne
-	private final UserEntity userEntity;
+	private UserEntity userEntity;
 	@ManyToOne
-	private final CarEntity carEntity;
+	private CarEntity carEntity;
 	
-	private final LocalDate initDate;
-	private final LocalDate endDate;
-	private final Double price;
+	private LocalDate initDate;
+	private LocalDate endDate;
+	private Double price;
 }

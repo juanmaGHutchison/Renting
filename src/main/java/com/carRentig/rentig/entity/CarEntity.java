@@ -11,19 +11,21 @@ import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public final class CarEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private final Integer id;
-	private final String model;
-	private final String brand;
+	private Integer id;
+	private String model;
+	private String brand;
 	@OneToMany(mappedBy = "carEntity")
-	private final List<RentEntity> rents;
+	private List<RentEntity> rents;
 	@ManyToOne
-	private final UserEntity userEntity;
+	private UserEntity userEntity;
 	
 }
