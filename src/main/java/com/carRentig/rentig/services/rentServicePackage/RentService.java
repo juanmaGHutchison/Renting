@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import com.carRentig.rentig.dto.ResultRentDto;
 import com.carRentig.rentig.entity.RentEntity;
 import com.carRentig.rentig.exception.NotFoundException;
 
@@ -26,6 +27,16 @@ public interface RentService {
 	 * @return the profit from a car in an specific date
 	 */
 	public Optional<Double> profit(Integer idCar, LocalDate init, LocalDate end) throws NotFoundException;
+	
+	/*
+	 * Method know how much cars has a user rented
+	 * @param idUser ID from the car we want to calculate our profit
+	 * @param init initial date we want to know the cars we've rented
+	 * @param end ending date we want to know the cars we've rented
+	 * @throws NoFoundException if the ID from the user we are searching for doesn't exist in our DB
+	 * @return A paged list from the cars a user has rented
+	 */
+	public Page<ResultRentDto> rentsByUser(Integer idUser, LocalDate init, LocalDate end) throws NotFoundException;
 	
 	/*
 	 * Method that creates a new rent

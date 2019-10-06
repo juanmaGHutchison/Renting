@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.carRentig.rentig.dto.RentDto;
+import com.carRentig.rentig.dto.ResultRentDto;
 import com.carRentig.rentig.exception.NotFoundException;
 import com.carRentig.rentig.services.mapper.mapperRent.MapperServiceRentDtoToEntityImpl;
 import com.carRentig.rentig.services.mapper.mapperRent.MapperServiceRentEntityToDtoImpl;
@@ -52,5 +53,15 @@ public class RentController {
 		LocalDate endDate = LocalDate.ofEpochDay(end);
 		
 		return rentService.profit(idCar, initDate, endDate);
+	}
+	
+	@GetMapping("/rentsbyUser/{iduser}")
+	public Page<ResultRentDto> rentsByUser(@PathVariable("iduser") Integer idUser, 
+			@RequestParam(name="init",required=true) long init, 
+			@RequestParam(name="end",required=true) long end) throws NotFoundException{
+		LocalDate initDate = LocalDate.ofEpochDay(init);
+		LocalDate endDate = LocalDate.ofEpochDay(end);
+		
+		return rentService.rentsByUser(idUser, initDate, endDate);
 	}
 }

@@ -1,14 +1,17 @@
 package com.carRentig.rentig.services.rentServicePackage;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.carRentig.rentig.dto.ResultRentDto;
 import com.carRentig.rentig.entity.CarEntity;
 import com.carRentig.rentig.entity.RentEntity;
 import com.carRentig.rentig.entity.UserEntity;
@@ -52,14 +55,26 @@ public class RentServiceImpl implements RentService{
 		List<RentEntity> rentEntities = rentRepository.findByCarEntity(car);
 		Double carProfit = new Double(0.0);
 		
-		for(RentEntity entity : rentEntities) {
-			if(entity.getInitDate().isAfter(init) && entity.getEndDate().isBefore(end)) {
+		for(RentEntity entity : rentEntities) 
+			if(entity.getInitDate().isAfter(init) && entity.getEndDate().isBefore(end))
 				carProfit += entity.getPrice();
-				System.out.println(carProfit);
-			}
-		}
-		
+			
 		return Optional.of(carProfit);
+	}
+	@Override
+	public Page<ResultRentDto> rentsByUser(Integer idUser, LocalDate init, LocalDate end) throws NotFoundException {
+		UserEntity user = userRepository.findById(idUser)
+				.orElseThrow(() -> new NotFoundException("El usuario con el id " + idUser + " no existe"));
+		
+		List<ResultRentDto> entities = new ArrayList<ResultRentDto>();
+		for(RentEntity entity : user.getRents())
+			if(entity.getInitDate().isAfter(init) && entity.getEndDate().isBefore(end))
+				entities.add(new ResultRentDto(
+						entity.getCarEntity().getBrand() + " " + entity.getCarEntity().getModel(),
+						entity.getInitDate(), entity.getEndDate(),
+						entity.getPrice()));
+		
+		return new PageImpl<>(entities);
 	}
 
 }
