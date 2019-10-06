@@ -11,7 +11,6 @@ import com.carRentig.rentig.exception.NotFoundException;
 import com.carRentig.rentig.exception.NotYourCarException;
 import com.carRentig.rentig.repository.carRepositoryPackage.CarRepository;
 import com.carRentig.rentig.repository.userRepositoryPackage.UserRepository;
-import com.carRentig.rentig.services.userServicePackage.UserService;
 
 @Service
 public class CarServiceImpl implements CarService{
