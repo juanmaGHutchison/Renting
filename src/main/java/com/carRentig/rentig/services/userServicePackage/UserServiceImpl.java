@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public UserEntity findByOne(Integer id)throws NotFoundException {
+	public UserEntity findByOne(Integer id) throws NotFoundException {
 		return userRepository.findById(id)
 			.orElseThrow(() -> new NotFoundException("El usuario con el id " + id + " no existe"));
 	}
@@ -32,8 +32,8 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public void delete(UserEntity userEntity){
-		userRepository.delete(userEntity);
+	public void delete(Integer id){
+		userRepository.deleteById(id);
 	}
 
 }

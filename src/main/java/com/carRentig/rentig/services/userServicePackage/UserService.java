@@ -35,5 +35,5 @@ public interface UserService {
 	 * Method that deletes a user by its ID
 	 * @param id ID from the user we want to delete
 	 */
-	public void delete(final UserEntity id);
+	public void delete(final Integer id);
 }

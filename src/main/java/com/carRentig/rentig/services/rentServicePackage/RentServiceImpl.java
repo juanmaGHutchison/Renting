@@ -1,7 +1,5 @@
 package com.carRentig.rentig.services.rentServicePackage;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Service;
 
 import com.carRentig.rentig.entity.RentEntity;
@@ -10,8 +8,8 @@ import com.carRentig.rentig.entity.RentEntity;
 public class RentServiceImpl implements RentService{
 
 	@Override
-	public Optional<RentEntity> save(RentEntity rentEntity) throws IllegalArgumentException{
-		return Optional.empty();
+	public RentEntity save(Integer idUser, Integer idCar, RentEntity rentEntity) throws IllegalArgumentException{
+		return new RentEntity();
 	}
 
 }

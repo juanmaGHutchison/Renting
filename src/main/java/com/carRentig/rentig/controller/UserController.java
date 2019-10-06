@@ -58,10 +58,7 @@ public class UserController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable("id") Integer id) throws NotFoundException {
-		UserDto userEntity = userEntityToDto.map(
-									userService.findByOne(id));
-		userService.delete(
-				userDtoToEntity.map(userEntity));
+	public void delete(@PathVariable("id") Integer id) {
+		userService.delete(id);
 	}
 }

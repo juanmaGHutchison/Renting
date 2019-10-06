@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.carRentig.rentig.exception.IllegalArgumentException;
 import com.carRentig.rentig.exception.NotFoundException;
+import com.carRentig.rentig.exception.NotYourCarException;
 import com.carRentig.rentig.exception.ValidationException;
 
 public class ControllerExceptionAdvicer {
@@ -29,6 +30,13 @@ public class ControllerExceptionAdvicer {
 	@ResponseStatus(HttpStatus.I_AM_A_TEAPOT)
 	@ExceptionHandler(IllegalArgumentException.class)
 	public Exception handlerIllegalArgumentException(IllegalArgumentException e) {
+		return e;
+	}
+	
+	@ResponseBody
+	@ResponseStatus(HttpStatus.CONFLICT)
+	@ExceptionHandler(NotYourCarException.class)
+	public Exception handlerNotYourCarException(NotYourCarException e) {
 		return e;
 	}
 }
