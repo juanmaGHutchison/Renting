@@ -1,20 +1,20 @@
-Rest Application made with Spring.
-The app is about Users that rent Cars.
-USER 1 ------- n CAR
-USER 1 ------- n RENT
-CAR  n ------- 1 USER
-CAR  1 ------- n RENT
-RENT n ------- 1 USER
-RENT n ------- 1 CAR
+Rest Application made with Spring. <br />
+The app is about Users that rent Cars. <br />
+USER 1 ------- n CAR <br />
+USER 1 ------- n RENT <br />
+CAR  n ------- 1 USER <br />
+CAR  1 ------- n RENT <br />
+RENT n ------- 1 USER <br />
+RENT n ------- 1 CAR <br />
 
-DTO
-USER(id, name)
-CAR(id, model, brand)
-RENT(USER, CAR, initDate, finalDate, price)
+DTO <br />
+USER(id, name) <br />
+CAR(id, model, brand) <br />
+RENT(USER, CAR, initDate, finalDate, price) <br />
 
-RESULTRENT(title: CAR.brand + CAR.model, initDate, finalDate, price) 
+RESULTRENT(title: CAR.brand + CAR.model, initDate, finalDate, price) <br /> 
 
-We want 
-The profit of a given car in a rank date.
-How much cars has a user rented.
-Mock Rent Service.
+We want <br />
+The profit of a given car in a rank date. <br />
+How much cars has a user rented. <br />
+Mock Rent Service. <br />
